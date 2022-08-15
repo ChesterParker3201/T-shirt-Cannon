@@ -7,7 +7,10 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import com.revrobotics.CANSparkMax;
+import com.revrobotics.REVLibError;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 /**
@@ -28,6 +31,14 @@ public class Robot extends TimedRobot {
 
   @Override
   public void robotInit() {
+
+    m_frontRightMotor.setOpenLoopRampRate(0);
+    m_frontLeftMotor.setOpenLoopRampRate(0);
+    m_topRightMotor.setOpenLoopRampRate(0);
+    m_topLeftMotor.setOpenLoopRampRate(0);
+    m_backRightMotor.setOpenLoopRampRate(0);
+    m_backLeftMotor.setOpenLoopRampRate(0);
+
     m_backLeftMotor.follow(m_frontLeftMotor);
     m_topLeftMotor.follow(m_frontLeftMotor);
     m_backRightMotor.follow(m_frontRightMotor);
